@@ -1,0 +1,331 @@
+/*
+  Community Healthcare Clinic - Accessible Booking Portal
+  Part A wireframe stylesheet
+  Ticket: MD-2026-0143
+
+  ------------------------------------------------------------------
+  COMPUTED CONTRAST VALUES (WCAG 2.1 relative-luminance formula)
+  AA minimums: 4.5:1 body text, 3:1 large text (>=18pt, or >=14pt bold)
+  and 3:1 for UI components / focus indicators (SC 1.4.11).
+
+  Foreground   Background   Ratio    Used for
+  #1A202C      #FFFFFF      16.32:1  body text on page
+  #4A5568      #FFFFFF       7.53:1  muted / helper text on page
+  #1A202C      #F7FAFC      15.57:1  body text on surface cards
+  #4A5568      #F7FAFC       7.18:1  helper text on surface cards
+  #2B6CB0      #FFFFFF       5.42:1  links, focus ring on page
+  #2B6CB0      #F7FAFC       5.17:1  links on surface cards
+  #FFFFFF      #2B6CB0       5.42:1  button label on primary button
+  #FFFFFF      #1A365D      12.14:1  header / nav text
+  #FBD38D      #1A365D       8.56:1  focus ring on dark header
+  #9B2C2C      #FFFFFF       7.53:1  error text
+  #9B2C2C      #FFF5F5       7.04:1  error text on error panel
+  #276749      #FFFFFF       6.73:1  success text
+  #22543D      #F0FFF4       8.45:1  success text on success panel
+  #1A365D      #EBF4FF      10.94:1  tag / badge text
+  #E2E8F0      #1A202C      13.24:1  footer text
+  #4A5568      #FFFFFF       7.53:1  input border (needs >=3:1, SC 1.4.11)
+  ------------------------------------------------------------------
+*/
+
+:root {
+    --text: #1A202C;
+    /* 16.32:1 on #FFFFFF */
+    --text-muted: #4A5568;
+    /* 7.53:1 on #FFFFFF */
+    --page: #FFFFFF;
+    --surface: #F7FAFC;
+    --primary: #2B6CB0;
+    /* 5.42:1 on #FFFFFF */
+    --header: #1A365D;
+    /* 12.14:1 with white text */
+    --focus: #2B6CB0;
+    --focus-on-dark: #FBD38D;
+    /* 8.56:1 on #1A365D */
+    --error: #9B2C2C;
+    --error-bg: #FFF5F5;
+    --border: #4A5568;
+    --radius: 6px;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 100%;
+}
+
+/* respects user font-size settings (SC 1.4.4) */
+
+body {
+    margin: 0;
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+    font-size: 1.125rem;
+    /* 18px */
+    line-height: 1.6;
+    color: var(--text);
+    background: var(--page);
+}
+
+/* ---------- Visible focus architecture (SC 2.4.7, 1.4.11) ----------
+   Browser defaults are NOT removed without replacement:
+   we only restyle :focus-visible, and never write "outline: none". */
+:focus-visible {
+    outline: 3px solid var(--focus);
+    outline-offset: 2px;
+}
+
+.site-header :focus-visible,
+.site-footer :focus-visible {
+    outline-color: var(--focus-on-dark);
+}
+
+/* ---------- Skip link (SC 2.4.1) ---------- */
+.skip-link {
+    position: absolute;
+    left: 0.5rem;
+    top: -4rem;
+    background: var(--page);
+    color: var(--text);
+    padding: 0.75rem 1rem;
+    border: 2px solid var(--text);
+    border-radius: var(--radius);
+    z-index: 10;
+}
+
+.skip-link:focus {
+    top: 0.5rem;
+}
+
+/* ---------- Layout ---------- */
+.site-header {
+    background: var(--header);
+    color: #FFFFFF;
+}
+
+.site-header .inner,
+main,
+.site-footer .inner {
+    max-width: 68rem;
+    margin: 0 auto;
+    padding: 1rem 1.25rem;
+}
+
+.brand {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin: 0;
+}
+
+/* large bold text: needs 3:1, has 12.14:1 */
+.site-header a {
+    color: #FFFFFF;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem 1.5rem;
+    padding: 0;
+    margin: 0.75rem 0 0;
+}
+
+nav a {
+    display: inline-block;
+    padding: 0.5rem 0;
+    min-height: 44px;
+}
+
+/* target size (SC 2.5.5 best practice) */
+nav a[aria-current="page"] {
+    font-weight: 700;
+    text-decoration: underline;
+    text-underline-offset: 4px;
+}
+
+h1 {
+    font-size: 2.25rem;
+    line-height: 1.2;
+    margin: 1.5rem 0 1rem;
+}
+
+h2 {
+    font-size: 1.5rem;
+    margin: 2rem 0 0.75rem;
+}
+
+h3 {
+    font-size: 1.25rem;
+    margin: 0 0 0.5rem;
+}
+
+a {
+    color: var(--primary);
+    text-underline-offset: 3px;
+}
+
+.grid {
+    display: grid;
+    gap: 1.25rem;
+    grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+}
+
+.two-col {
+    display: grid;
+    gap: 2rem;
+    grid-template-columns: 1fr;
+}
+
+@media (min-width: 52rem) {
+    .two-col {
+        grid-template-columns: 18rem 1fr;
+    }
+}
+
+.card,
+aside.panel {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 1.25rem;
+}
+
+.muted {
+    color: var(--text-muted);
+}
+
+.tag {
+    display: inline-block;
+    background: #EBF4FF;
+    color: #1A365D;
+    border: 1px solid #1A365D;
+    border-radius: 999px;
+    padding: 0 0.75rem;
+    font-size: 0.95rem;
+}
+
+/* ---------- Buttons & links styled as buttons ---------- */
+.btn {
+    display: inline-block;
+    min-height: 44px;
+    padding: 0.6rem 1.25rem;
+    background: var(--primary);
+    color: #FFFFFF;
+    /* 5.42:1 */
+    border: 2px solid var(--primary);
+    border-radius: var(--radius);
+    font: inherit;
+    font-weight: 700;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.btn-secondary {
+    background: var(--page);
+    color: var(--primary);
+}
+
+/* 5.42:1 */
+
+/* ---------- Forms ---------- */
+fieldset {
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 1rem 1.25rem;
+    margin: 0 0 1.5rem;
+}
+
+legend {
+    font-weight: 700;
+    padding: 0 0.5rem;
+}
+
+.field {
+    margin-bottom: 1.25rem;
+}
+
+label {
+    display: block;
+    font-weight: 700;
+    margin-bottom: 0.25rem;
+}
+
+.hint {
+    color: var(--text-muted);
+    margin: 0 0 0.35rem;
+    font-size: 1rem;
+}
+
+/* 7.53:1 */
+input,
+select,
+textarea {
+    width: 100%;
+    min-height: 44px;
+    padding: 0.5rem 0.75rem;
+    font: inherit;
+    color: var(--text);
+    background: var(--page);
+    border: 2px solid var(--border);
+    /* 7.53:1, passes 3:1 non-text contrast */
+    border-radius: var(--radius);
+}
+
+.error-text {
+    color: var(--error);
+    font-weight: 700;
+}
+
+/* 7.53:1 */
+.required {
+    color: var(--error);
+}
+
+/* ---------- Tables ---------- */
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+caption {
+    text-align: left;
+    font-weight: 700;
+    padding-bottom: 0.5rem;
+}
+
+th,
+td {
+    border: 1px solid var(--border);
+    padding: 0.6rem 0.75rem;
+    text-align: left;
+    vertical-align: top;
+}
+
+th {
+    background: var(--surface);
+}
+
+/* ---------- Footer ---------- */
+.site-footer {
+    background: #1A202C;
+    color: #E2E8F0;
+    margin-top: 3rem;
+}
+
+/* 13.24:1 */
+.site-footer a {
+    color: #FFFFFF;
+}
+
+/* ---------- Motion & zoom ---------- */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation: none !important;
+        transition: none !important;
+        scroll-behavior: auto !important;
+    }
+}

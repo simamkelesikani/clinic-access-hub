@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Find a service - Community Healthcare Clinic Booking Portal</title>
+    <link rel="stylesheet" href="main.css">
+</head>
+
+<body>
+    <a class="skip-link" href="#main">Skip to main content</a>
+
+    <header class="site-header">
+        <div class="inner">
+            <p class="brand">Community Healthcare Clinic</p>
+            <nav aria-label="Primary">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="services.html" aria-current="page">Find a service</a></li>
+                    <li><a href="book.html">Book an appointment</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main id="main">
+        <h1>Find a service</h1>
+
+        <div class="two-col">
+            <aside aria-labelledby="filters-title" class="panel">
+                <h2 id="filters-title">Filter services</h2>
+                <form action="services.html" method="get" role="search" aria-label="Service search and filters">
+                    <div class="field">
+                        <label for="q">Search services</label>
+                        <p id="q-hint" class="hint">For example: vaccination, asthma, check-up.</p>
+                        <input id="q" name="q" type="search" aria-describedby="q-hint">
+                    </div>
+
+                    <fieldset>
+                        <legend>Triage level</legend>
+                        <p><input id="t-urgent" name="triage" type="checkbox" value="urgent"
+                                style="width:auto;min-height:0"> <label for="t-urgent" style="display:inline">Urgent
+                                (same day)</label></p>
+                        <p><input id="t-routine" name="triage" type="checkbox" value="routine"
+                                style="width:auto;min-height:0"> <label for="t-routine"
+                                style="display:inline">Routine</label></p>
+                        <p><input id="t-preventive" name="triage" type="checkbox" value="preventive"
+                                style="width:auto;min-height:0"> <label for="t-preventive"
+                                style="display:inline">Preventive</label></p>
+                    </fieldset>
+
+                    <div class="field">
+                        <label for="cat">Category</label>
+                        <select id="cat" name="cat">
+                            <option value="">All categories</option>
+                            <option>General practice</option>
+                            <option>Vaccinations</option>
+                            <option>Mental health</option>
+                            <option>Chronic care</option>
+                        </select>
+                    </div>
+
+                    <button class="btn" type="submit">Apply filters</button>
+                </form>
+            </aside>
+
+            <section aria-labelledby="results-title">
+                <h2 id="results-title">5 services found</h2>
+                <p class="muted">Results are shown as a list. Each service has its own booking link.</p>
+
+                <ul style="list-style:none;padding:0;display:grid;gap:1rem">
+                    <li>
+                        <article class="card" aria-labelledby="s1">
+                            <h3 id="s1">General consultation</h3>
+                            <p><span class="tag">Routine</span> <span class="tag">General practice</span></p>
+                            <p>Assessment and treatment of common illnesses with a doctor. 20 minutes.</p>
+                            <a class="btn" href="book.html">Book general consultation</a>
+                        </article>
+                    </li>
+                    <li>
+                        <article class="card" aria-labelledby="s2">
+                            <h3 id="s2">Same-day urgent care</h3>
+                            <p><span class="tag">Urgent</span> <span class="tag">General practice</span></p>
+                            <p>For injuries and sudden illness that cannot wait. Walk-in or booked.</p>
+                            <a class="btn" href="book.html">Book urgent care</a>
+                        </article>
+                    </li>
+                    <li>
+                        <article class="card" aria-labelledby="s3">
+                            <h3 id="s3">Childhood vaccinations</h3>
+                            <p><span class="tag">Preventive</span> <span class="tag">Vaccinations</span></p>
+                            <p>Routine immunisations with a clinic nurse. 15 minutes.</p>
+                            <a class="btn" href="book.html">Book vaccination</a>
+                        </article>
+                    </li>
+                    <li>
+                        <article class="card" aria-labelledby="s4">
+                            <h3 id="s4">Counselling session</h3>
+                            <p><span class="tag">Routine</span> <span class="tag">Mental health</span></p>
+                            <p>Confidential support with a registered counsellor. 50 minutes.</p>
+                            <a class="btn" href="book.html">Book counselling</a>
+                        </article>
+                    </li>
+                    <li>
+                        <article class="card" aria-labelledby="s5">
+                            <h3 id="s5">Chronic condition review</h3>
+                            <p><span class="tag">Routine</span> <span class="tag">Chronic care</span></p>
+                            <p>Ongoing review for asthma, diabetes and hypertension. 30 minutes.</p>
+                            <a class="btn" href="book.html">Book review</a>
+                        </article>
+                    </li>
+                </ul>
+            </section>
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <div class="inner">
+            <p>Community Healthcare Clinic. Prototype for Marlowe Digital, ticket MD-2026-0143.</p>
+            <p><a href="index.html">Home</a> | <a href="book.html">Book</a></p>
+        </div>
+    </footer>
+</body>
+
+</html>

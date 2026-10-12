@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Book an appointment - Community Healthcare Clinic Booking Portal</title>
+    <link rel="stylesheet" href="main.css">
+</head>
+
+<body>
+    <a class="skip-link" href="#main">Skip to main content</a>
+
+    <header class="site-header">
+        <div class="inner">
+            <p class="brand">Community Healthcare Clinic</p>
+            <nav aria-label="Primary">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="services.html">Find a service</a></li>
+                    <li><a href="book.html" aria-current="page">Book an appointment</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main id="main">
+        <h1>Book an appointment</h1>
+        <p>Fields marked <span class="required" aria-hidden="true">*</span><span class="muted"> (asterisk) </span>are
+            required.</p>
+
+        <div class="two-col">
+            <aside aria-labelledby="summary-title" class="panel">
+                <h2 id="summary-title">Your selection</h2>
+                <dl>
+                    <dt>Service</dt>
+                    <dd>General consultation (20 min)</dd>
+                    <dt>Location</dt>
+                    <dd>Main clinic, ground floor, step-free entrance</dd>
+                </dl>
+                <p><a href="services.html">Change service</a></p>
+            </aside>
+
+            <article aria-labelledby="form-title">
+                <h2 id="form-title">Your details</h2>
+                <form action="#" method="post" novalidate>
+                    <fieldset>
+                        <legend>Patient details</legend>
+
+                        <div class="field">
+                            <label for="name">Full name <span class="required" aria-hidden="true">*</span></label>
+                            <p id="name-hint" class="hint">As it appears on your ID or clinic card.</p>
+                            <input id="name" name="name" type="text" autocomplete="name" required
+                                aria-describedby="name-hint">
+                        </div>
+
+                        <div class="field">
+                            <label for="email">Email address <span class="required" aria-hidden="true">*</span></label>
+                            <p id="email-hint" class="hint">We send your confirmation here, for example
+                                name@example.com.</p>
+                            <input id="email" name="email" type="email" autocomplete="email" required
+                                aria-describedby="email-hint">
+                        </div>
+
+                        <div class="field">
+                            <label for="phone">Mobile number</label>
+                            <p id="phone-hint" class="hint">Optional. 10 digits, for an SMS reminder.</p>
+                            <input id="phone" name="phone" type="tel" autocomplete="tel" aria-describedby="phone-hint">
+                        </div>
+                    </fieldset>
+
+                    <fieldset>
+                        <legend>Appointment details</legend>
+
+                        <div class="field">
+                            <label for="practitioner">Practitioner <span class="required"
+                                    aria-hidden="true">*</span></label>
+                            <p id="practitioner-hint" class="hint">Choose a doctor or clinic sister currently available.
+                            </p>
+                            <select id="practitioner" name="practitioner" required aria-describedby="practitioner-hint">
+                                <option value="">Select a practitioner</option>
+                                <option value="dr-naidoo">Dr. A. Naidoo - next free: today 14:30</option>
+                                <option value="dr-petersen">Dr. L. Petersen - next free: Thursday 11:15</option>
+                            </select>
+                        </div>
+
+                        <div class="field">
+                            <label for="date">Preferred date <span class="required" aria-hidden="true">*</span></label>
+                            <p id="date-hint" class="hint">Clinic opens Monday to Friday.</p>
+                            <input id="date" name="date" type="date" required aria-describedby="date-hint">
+                        </div>
+
+                        <div class="field">
+                            <label for="access">Access needs</label>
+                            <p id="access-hint" class="hint">Optional. For example: sign language interpreter,
+                                wheelchair access.</p>
+                            <textarea id="access" name="access" rows="3" aria-describedby="access-hint"></textarea>
+                        </div>
+                    </fieldset>
+
+                    <button class="btn" type="submit">Confirm booking</button>
+                    <a class="btn btn-secondary" href="services.html">Cancel</a>
+                </form>
+            </article>
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <div class="inner">
+            <p>Community Healthcare Clinic. Prototype for Marlowe Digital, ticket MD-2026-0143.</p>
+            <p><a href="index.html">Home</a> | <a href="services.html">Services</a></p>
+        </div>
+    </footer>
+</body>
+
+</html>
