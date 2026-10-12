@@ -12,7 +12,6 @@ A keyboard- and screen-reader-first prototype of a clinic booking portal: a clin
 | `/src`, `index.html`, `vite.config.js` | **Part B.** React 19 single-page app built with Vite |
 | `/src/__tests__` | Component tests (Vitest, Testing Library, vitest-axe) |
 | `/scripts` | `axe-wireframes.mjs` (axe on the static pages), `contrast.mjs` (computed contrast ratios) |
-| `netlify.toml`, `.github/workflows/ci.yml` | Deployment configuration and CI |
 | `README.md` | **Part C.** This document |
 
 ## Run it
@@ -27,10 +26,6 @@ npm run build && npm run preview   # production build on http://localhost:5174
 ```
 
 Open the wireframes directly in a browser: `wireframes/index.html`.
-
-## Deployment
-
-`netlify.toml` builds with `npm run build` and publishes `dist/`. The GitHub Actions workflow runs the tests, both audit scripts and the build on every push and pull request.
 
 ---
 
