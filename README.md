@@ -68,7 +68,8 @@ Focus is the one thing state cannot express, so refs and effects handle it. `App
 ```bash
 npm run build && npm run preview
 # in a second terminal:
-npx lighthouse http://localhost:4173 --only-categories=accessibility --view
+npx lighthouse http://localhost:5174/
+ --only-categories=accessibility --view
 ```
 
 Lighthouse score: **____ / 100** (home), **____ / 100** (after navigating by hand to the booking form and running the Lighthouse panel in Chrome DevTools)
