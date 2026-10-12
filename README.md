@@ -23,7 +23,7 @@ npm run dev            # development server
 npm run test:run       # component tests, including axe checks
 npm run audit:wireframes
 npm run audit:contrast
-npm run build && npm run preview   # production build on http://localhost:4173
+npm run build && npm run preview   # production build on http://localhost:5174
 ```
 
 Open the wireframes directly in a browser: `wireframes/index.html`.
